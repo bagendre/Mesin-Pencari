@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,11 +6,14 @@
 package model;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
 import org.apache.lucene.analysis.TokenStream;
@@ -22,13 +24,13 @@ import org.apache.lucene.analysis.id.IndonesianAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.util.Version;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 
 /**
  *
- * @author admin
+ * @author puspaningtyas
  */
-
-
 public class Document implements Comparable<Document> {
 
     private int id;
@@ -256,4 +258,31 @@ public class Document implements Comparable<Document> {
         }
         content = sb.toString();
     }
+
+    /**
+     * Fungsi baca file pdf yang dibentu dari pengolah kata. File pdf tidak bisa
+     * dibaca jika bentuknya gambar/citra
+     *
+     * @param pdfFile
+     */
+    public void readPDFFile(File pdfFile) {
+        try {
+            //Loading an existing document
+            PDDocument document = null;
+            document = PDDocument.load(pdfFile);
+
+            //Instantiate PDFTextStripper class
+            PDFTextStripper pdfStripper = new PDFTextStripper();
+
+            //Retrieving text from PDF document
+            String text = pdfStripper.getText(document);
+//            System.out.println(text);
+            realContent = text;
+            //Closing the document
+            document.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Document.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }
