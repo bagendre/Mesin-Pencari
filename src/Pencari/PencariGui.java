@@ -62,6 +62,7 @@ public class PencariGui extends javax.swing.JFrame {
         export = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        bacadirektori = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -155,6 +156,14 @@ public class PencariGui extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
+
+        bacadirektori.setText("Baca direktori");
+        bacadirektori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bacadirektoriActionPerformed(evt);
+            }
+        });
+        jMenu1.add(bacadirektori);
 
         jMenuBar1.add(jMenu1);
 
@@ -313,6 +322,18 @@ public class PencariGui extends javax.swing.JFrame {
         content.setText(null);
     }//GEN-LAST:event_btnBatalActionPerformed
 
+    private void bacadirektoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bacadirektoriActionPerformed
+        // TODO add your handling code here:
+         JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        
+        int ret = fileChooser.showOpenDialog(this);
+        if (ret == JFileChooser.APPROVE_OPTION) {
+            index.readDirectory(fileChooser.getSelectedFile());
+            JOptionPane.showMessageDialog(this, "Dokumen Dibuka");
+        }
+    }//GEN-LAST:event_bacadirektoriActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -350,6 +371,7 @@ public class PencariGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem bacadirektori;
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JButton cariBtn;

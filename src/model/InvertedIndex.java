@@ -585,7 +585,19 @@ public class InvertedIndex {
      * @param directory
      */
     public void readDirectory(File directory) {
-
+        File[] fileNames = directory.listFiles();
+        System.out.println(fileNames.length);
+        int idDoc = getListOfDocument().size()+ 1;
+        for (File currentFile : fileNames) {
+            if (currentFile.isDirectory()) {
+                readDirectory(currentFile);
+            } else {
+                Document doc = Document.readFile(idDoc, currentFile);
+                addNewDocument(doc);
+            }
+            idDoc++;
+        }
+        makeDictionaryWithTermNumber();
     }
 
 }
