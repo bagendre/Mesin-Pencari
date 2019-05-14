@@ -14,6 +14,14 @@
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="bacadirektori">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Baca direktori"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bacadirektoriActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="export">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Import File"/>
@@ -36,14 +44,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="bacadirektori">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Baca direktori"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bacadirektoriActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

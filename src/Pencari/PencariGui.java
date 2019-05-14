@@ -59,10 +59,10 @@ public class PencariGui extends javax.swing.JFrame {
         btnBatal = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        bacadirektori = new javax.swing.JMenuItem();
         export = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        bacadirektori = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,6 +133,14 @@ public class PencariGui extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
+        bacadirektori.setText("Baca direktori");
+        bacadirektori.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bacadirektoriActionPerformed(evt);
+            }
+        });
+        jMenu1.add(bacadirektori);
+
         export.setText("Import File");
         export.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,14 +164,6 @@ public class PencariGui extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem2);
-
-        bacadirektori.setText("Baca direktori");
-        bacadirektori.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bacadirektoriActionPerformed(evt);
-            }
-        });
-        jMenu1.add(bacadirektori);
 
         jMenuBar1.add(jMenu1);
 
