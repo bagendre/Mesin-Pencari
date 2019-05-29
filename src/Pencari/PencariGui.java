@@ -240,6 +240,7 @@ public class PencariGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
+        
         int idDokumen = Integer.parseInt(idDoc.getText());
         String kontent = content.getText();
         Document doc = new Document();
