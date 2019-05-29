@@ -247,6 +247,7 @@ public class PencariGui extends javax.swing.JFrame {
         doc.setId(idDokumen);
         dokumen.add(doc);
         index.addNewDocument(new Document(idDokumen, kontent));
+        index.makeDictionaryWithTermNumber();
         idDoc.setText(String.valueOf(Integer.parseInt(idDoc.getText()) + 1));
         content.setText("");
         JOptionPane.showMessageDialog(rootPane, "Sukses Di Tambahkan");
